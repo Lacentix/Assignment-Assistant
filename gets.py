@@ -13,8 +13,12 @@ def get_id():
 
 
 def get_subject_names():
-    subjects = input("Enter a list of subjects separated by commas: ").strip().split(",")
+    subjects = (
+        input("Enter a list of subjects separated by commas: ").strip().split(",")
+    )
     for subject in subjects:
         if not match(r"^[A-Za-z]{3,4}[0-9]{3}$", subject):
-            raise ValueError("Subject names must be in the format 'abc123' or 'ABC123'.")
+            raise ValueError(
+                "Subject names must be in the format 'abc123' or 'ABC123'."
+            )
     return [subject.upper() for subject in subjects]

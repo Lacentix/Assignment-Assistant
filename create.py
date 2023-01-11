@@ -9,8 +9,11 @@ def create_subject_folders(subject_names):
 
 def create_gitignore(subject_names):
     # Ignore created folders
-    ignore_statements = ["# Ignore subject folders", "*", "!.gitignore"] + \
-                        ["!" + subject_name + "/" for subject_name in subject_names] + ["*/"]
+    ignore_statements = (
+        ["# Ignore subject folders", "*", "!.gitignore"]
+        + ["!" + subject_name + "/" for subject_name in subject_names]
+        + ["*/"]
+    )
 
     # Append ignore statements to the end of the file
     with open(".gitignore", "a") as gitignore_file:

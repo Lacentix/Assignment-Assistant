@@ -1,6 +1,7 @@
-from gets import get_name, get_id, get_subject_names
-from checkers import check_name, check_id
-from create import create_subject_folders, create_gitignore
+from checkers import check_files_exist, check_id, check_name
+from create import create_gitignore, create_subject_folders
+from file_util import *
+from gets import get_id, get_name, get_subject_names
 
 
 def main():
@@ -10,10 +11,12 @@ def main():
 
     student_id = get_id()
     check_id(student_id)
+    check_files_exist()
 
     subject_names = get_subject_names()
     create_subject_folders(subject_names)
     create_gitignore(subject_names)
+    search_keywords_in_files(first_name, last_name, student_id)
 
 
 if __name__ == "__main__":
